@@ -1,0 +1,20 @@
+{
+  "slug": "crystal",
+  "language": "Crystal",
+  "repository": "https://github.com/exercism/xcrystal",
+  "active": false,
+  "test_pattern": "_spec.cr",
+  "problems": [
+
+  ],
+  "deprecated": [
+
+  ],
+  "ignored": [
+    "bin",
+    "docs"
+  ],
+  "foregone": [
+
+  ]
+}
