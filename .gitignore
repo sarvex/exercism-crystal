@@ -1,5 +1,18 @@
+# ignore all files (to ignore crystal binaries)
+*
+
+# unignore files with extensions, dirs and specific ones
+!*.*
+!*/
+!bin/fetch-configlet
+!LICENSE
+!Makefile
+
+# make sure to ignore others
 *.swp
+.crystal/
 .DS_Store
 bin/configlet
 bin/configlet.exe
 CHECKLIST
+tmp/

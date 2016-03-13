@@ -5,7 +5,9 @@
   "active": false,
   "test_pattern": "_spec.cr",
   "problems": [
-
+    "hello-world",
+    "hamming",
+    "rna-transcription"
   ],
   "deprecated": [
 
