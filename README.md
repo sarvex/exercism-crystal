@@ -2,9 +2,21 @@
 
 Exercism problems in Crystal.
 
-## TODO
+## The Tests
 
-_Document how to contribute to the Crystal track._
+### All Assignments
+
+Run all assignments with:
+```bash
+$ make test
+```
+
+### Single Assignment
+
+Run single assignments with:
+```bash
+$ make test-assignment ASSIGNMENT=test-folder-name
+```
 
 ## Contributing Guide
 
@@ -15,4 +27,3 @@ Please see the [contributing guide](https://github.com/exercism/x-api/blob/maste
 The MIT License (MIT)
 
 Copyright (c) 2016 Katrina Owen, _@kytrinyx.com
-
