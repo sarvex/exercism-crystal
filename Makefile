@@ -23,9 +23,7 @@ test-assignment:
 	@echo "crystal spec $(OUTDIR)/$(SPECFILE)"
 	@cp $(EXERCISESDIR)/$(ASSIGNMENT)/$(SPECFILE) $(OUTDIR)
 	@cp $(EXERCISESDIR)/$(ASSIGNMENT)/$(EXAMPLE) $(OUTDIR)/$(TESTFILE)
-	# @sed -i.original 's/\bxit\b/it/g' $(OUTDIR)/*spec.$(FILEEXT)
-	# @sed "s/\.\/$(ASSIGNMENT)/$(ASSIGNMENT)/g" $(EXERCISESDIR)/$(ASSIGNMENT)/$(SPECFILE) > $(OUTDIR)/$(SPECFILE)
-	# @sed 's/pending/it/g' $(EXERCISESDIR)/$(ASSIGNMENT)/$(SPECFILE) > $(OUTDIR)/$(SPECFILE)
+	@sed 's/pending/it/g' $(EXERCISESDIR)/$(ASSIGNMENT)/$(SPECFILE) > $(OUTDIR)/$(SPECFILE)
 	@cd $(OUTDIR) && crystal spec $(SPECFILE)
 
 test:
