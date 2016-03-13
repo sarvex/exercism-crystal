@@ -1,5 +1,12 @@
-language: bash
-
+language: generic
+sudo: required
+dist: trusty
+services:
+  - docker
+install:
+  - curl http://dist.crystal-lang.org/apt/setup.sh | sudo bash
+  - sudo apt-get update -qq && apt-get install -qq crystal
 script:
   - bin/fetch-configlet
   - bin/configlet .
+  - make test
