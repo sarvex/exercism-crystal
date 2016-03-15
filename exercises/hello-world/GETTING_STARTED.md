@@ -2,10 +2,9 @@
 
 ## Installation
 
-### Mac OSX (Brew)
-`brew install crystal-lang`
+*Note: Currently, Crystal only supports Linux and OSX.*
 
-### Linux
+Use one of the [installation guides](http://crystal-lang.org/docs/installation/index.html) for instructions on installing Crystal.
 
 ## Running Tests
-`crystal spec test_spec.cr` 
+`crystal spec hello_world_spec.cr`

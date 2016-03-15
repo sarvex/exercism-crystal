@@ -17,10 +17,6 @@ TESTFILE := "$(TESTNAME).$(FILEEXT)"
 
 test-assignment:
 	@echo "running tests for: $(ASSIGNMENT)"
-	@echo "testname: $(TESTNAME)"
-	@echo "$(EXERCISESDIR)/$(ASSIGNMENT)/$(SPECFILE) -> $(OUTDIR)"
-	@echo "$(EXERCISESDIR)/$(ASSIGNMENT)/$(EXAMPLE) -> $(OUTDIR)/$(TESTFILE)"
-	@echo "crystal spec $(OUTDIR)/$(SPECFILE)"
 	@cp $(EXERCISESDIR)/$(ASSIGNMENT)/$(SPECFILE) $(OUTDIR)
 	@cp $(EXERCISESDIR)/$(ASSIGNMENT)/$(EXAMPLE) $(OUTDIR)/$(TESTFILE)
 	@sed 's/pending/it/g' $(EXERCISESDIR)/$(ASSIGNMENT)/$(SPECFILE) > $(OUTDIR)/$(SPECFILE)
