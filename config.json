@@ -9,16 +9,15 @@
     "hamming",
     "rna-transcription",
     "bob",
-    "raindrops"
+    "raindrops",
+    "leap"
   ],
   "deprecated": [
-
   ],
   "ignored": [
     "bin",
     "docs"
   ],
   "foregone": [
-
   ]
 }
