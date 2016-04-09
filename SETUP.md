@@ -2,7 +2,7 @@
 
 Follow the setup instructions for Crystal here:
 
-http://help.exercism.io/getting-started-with-crystal.html
+http://exercism.io/languages/crystal
 
 More help installing can be found here:
 
