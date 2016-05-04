@@ -20,7 +20,7 @@ describe "Hamming" do
     end
 
     pending "computes a distance for large strands" do
-      Hamming.compute("GGACGGATTCTG", "AGGACGGATTCT").should eq 2
+      Hamming.compute("GGACGGATTCTG", "AGGACGGATTCT").should eq 9
     end
 
     pending "raises an exception when strands aren't of equal length" do
