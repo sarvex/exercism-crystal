@@ -13,6 +13,7 @@
     "raindrops",
     "leap",
     "pangram",
+    "largest-series-product",
     "atbash_cipher"
   ],
   "deprecated": [
