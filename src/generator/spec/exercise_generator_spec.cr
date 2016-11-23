@@ -19,9 +19,11 @@ describe "ExerciseGenerator" do
     end
   end
 
-  describe "#to_s" do
-    it "will output the generator test file using the example.tt" do
-      DummyGenerator.new.to_s.should eq("require \"spec\"\nrequire \"../src/*\"\n\ndescribe \"Dummy\" do\nend\n")
+  describe "#generate" do
+    it "raises an error if no test cases exist" do
+      expect_raises do
+        DummyGenerator.generate
+      end
     end
   end
 end
