@@ -38,6 +38,7 @@ class Lexer
     when ';'
       next_char :";"
     when .number?
+      @token.type = :INT
       consume_number
     else
       @token.type = :WORD
@@ -49,9 +50,11 @@ class Lexer
 
   private def consume_string
     start_pos = current_pos
-    while !current_char.number? && !current_char.whitespace? && !(current_char == '\0')
+
+    while valid_word_char?
       next_char
     end
+
     @token.string_value = reader.string.byte_slice(start_pos, current_pos - start_pos)
   end
 
@@ -60,20 +63,11 @@ class Lexer
 
     while '0' <= current_char <= '9'
       integer *= 10
-      integer += current_char - '0'
+      integer += current_char.to_i
       next_char
     end
 
-    @token.type = :INT
     @token.int_value = integer
-  end
-
-  private def current_char
-    reader.current_char
-  end
-
-  private def next_char
-    reader.next_char
   end
 
   private def next_char(token_type)
@@ -91,11 +85,18 @@ class Lexer
       next_char
     end
   end
+
+  private def valid_word_char?
+    !current_char.number? && !current_char.whitespace? && !(current_char == '\0')
+  end
+
+  private delegate current_char, to: @reader
+  private delegate next_char, to: @reader
 end
 
 class Forth
-  def self.evaluate(string)
-    new(string.join).evaluate
+  def self.evaluate(code_string)
+    new(code_string).evaluate
   end
 
   def initialize(code_string)

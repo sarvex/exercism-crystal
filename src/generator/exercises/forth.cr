@@ -20,23 +20,23 @@ class ForthGenerator < ExerciseGenerator
 end
 
 class ForthTestCase < ExerciseTestCase
-  private getter input : JSON::Any
+  private getter input : JSON::Any | String
   private getter description : JSON::Any
   private getter expected : JSON::Any
 
   def initialize(test_case)
-    @input = fix_empty_array(test_case["input"])
+    @input = test_case["input"].as_a.join
     @description = test_case["description"]
     @expected = fix_empty_array(test_case["expected"])
   end
 
   def workload
     if !(expected == nil)
-      "Forth.evaluate(#{input}).should eq(#{expected})"
+      "Forth.evaluate(#{input.inspect}).should eq(#{expected})"
     else
       <<-WL
       expect_raises do
-            Forth.evaluate(#{input})
+            Forth.evaluate(#{input.inspect})
           end
       WL
     end
@@ -48,8 +48,7 @@ class ForthTestCase < ExerciseTestCase
 
   private def fix_empty_array(json)
     if json.to_s.match(/\[\]/)
-      json = "[] of String | Int32".to_json
-      JSON.parse(json)
+      JSON.parse("[] of Int32".to_json)
     else
       json
     end
