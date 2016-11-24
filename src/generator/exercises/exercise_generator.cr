@@ -9,6 +9,7 @@ abstract class ExerciseGenerator
   end
 
   def generate
+    raise "There are no test cases for #{exercise_name}" if test_cases.empty?
     File.write(test_file, to_s)
   end
 
@@ -16,8 +17,8 @@ abstract class ExerciseGenerator
     exercise_name.split('-').map(&.capitalize).join
   end
 
-  abstract def exercise_name : String
-  abstract def test_cases : Array(ExerciseTestCase)
+  abstract def exercise_name
+  abstract def test_cases
 
   private def root
     File.expand_path(File.join("..", "..", "..", ".."), __FILE__)
