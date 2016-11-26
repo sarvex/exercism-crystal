@@ -120,6 +120,12 @@
       ]
     },
     {
+      "slug": "binary",
+      "difficulty": 1,
+      "topics": [
+      ]
+    },
+    {
       "slug": "forth",
       "difficulty": 3,
       "topics": [
