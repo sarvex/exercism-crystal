@@ -15,7 +15,7 @@ end
 
 class HelloWorldTestCase < ExerciseTestCase
   private getter description : JSON::Any
-  private getter name : JSON::Any | Nil
+  private getter name : JSON::Any?
   private getter expected : JSON::Any
 
   def initialize(test_case)

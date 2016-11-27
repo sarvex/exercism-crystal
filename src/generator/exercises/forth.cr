@@ -22,16 +22,16 @@ end
 class ForthTestCase < ExerciseTestCase
   private getter input : JSON::Any | String
   private getter description : JSON::Any
-  private getter expected : JSON::Any
+  private getter expected : JSON::Any?
 
   def initialize(test_case)
     @input = test_case["input"].as_a.join
     @description = test_case["description"]
-    @expected = fix_empty_array(test_case["expected"])
+    @expected = fix_empty_array(test_case["expected"]?)
   end
 
   def workload
-    if !(expected == nil)
+    if expected
       "Forth.evaluate(#{input.inspect}).should eq(#{expected})"
     else
       <<-WL
