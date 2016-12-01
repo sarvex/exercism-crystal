@@ -1,29 +1,32 @@
-ASSIGNMENT ?= ""
+EXERCISE ?= ""
 IGNOREDIRS := "^(\.git|.crystal|docs|bin|img|script)$$"
 EXERCISESDIR ?= "exercises"
 GENERATORDIR ?= "src/generator"
-ASSIGNMENTS = $(shell find exercises -maxdepth 1 -mindepth 1 -type d | cut -d'/' -f2 | sort | grep -Ev $(IGNOREDIRS))
+EXERCISES = $(shell find exercises -maxdepth 1 -mindepth 1 -type d | cut -d'/' -f2 | sort | grep -Ev $(IGNOREDIRS))
 
-FILEEXT := "cr"
+FILEEXT = "cr"
 SPECDIR = "spec"
-ASSIGNMENTNAME := "$(subst -,_,$(ASSIGNMENT))"
-EXERCISESPECDIR := $(EXERCISESDIR)/$(ASSIGNMENT)/$(SPECDIR)
-SPECFILE := "$(ASSIGNMENTNAME)_spec.$(FILEEXT)"
-TMPSPECFILE := "$(ASSIGNMENTNAME)_spec.$(FILEEXT).tmp"
+EXERCISENAME := "$(subst -,_,$(EXERCISE))"
+EXERCISEDIR := $(EXERCISESDIR)/$(EXERCISE)
+EXERCISESPECDIR := $(EXERCISEDIR)/$(SPECDIR)
+SPECFILE := "$(EXERCISENAME)_spec.$(FILEEXT)"
+SUPERTMPSPECFILE := "$(SPECFILE).super.tmp"
+TMPSPECFILE := "$(SPECFILE).tmp"
 
-test-assignment:
-	@echo "running formatting check for: $(ASSIGNMENT)"
-	@crystal tool format --check $(EXERCISESDIR)/$(ASSIGNMENT)
-	@echo "moving files around"
+test-exercise:
+	@echo "running formatting check for: $(EXERCISE)"
+	@crystal tool format --check $(EXERCISESDIR)/$(EXERCISE)
 	@sed 's/pending/it/g' $(EXERCISESPECDIR)/$(SPECFILE) > $(EXERCISESPECDIR)/$(TMPSPECFILE)
-	@rm $(EXERCISESPECDIR)/$(SPECFILE)
+	@mv $(EXERCISESPECDIR)/$(SPECFILE) $(EXERCISESPECDIR)/$(SUPERTMPSPECFILE)
 	@mv $(EXERCISESPECDIR)/$(TMPSPECFILE) $(EXERCISESPECDIR)/$(SPECFILE)
-	@echo "running tests for: $(ASSIGNMENT)"
-	@cd $(EXERCISESDIR)/$(ASSIGNMENT) && crystal spec
+	@echo "running tests for: $(EXERCISE)"
+	@cd $(EXERCISESDIR)/$(EXERCISE) && crystal spec
+	@rm $(EXERCISESPECDIR)/$(SPECFILE)
+	@mv $(EXERCISESPECDIR)/$(SUPERTMPSPECFILE) $(EXERCISESPECDIR)/$(SPECFILE)
 	@printf "\n"
 
 test:
-	@for assignment in $(ASSIGNMENTS); do ASSIGNMENT=$$assignment $(MAKE) -s test-assignment || exit 1; done
+	@for exercise in $(EXERCISES); do EXERCISE=$$exercise $(MAKE) -s test-exercise || exit 1; done
 	@echo "running generator tests"
 	@cd $(GENERATORDIR) && crystal spec
 
