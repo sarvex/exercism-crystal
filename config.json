@@ -4,24 +4,6 @@
   "repository": "https://github.com/exercism/xcrystal",
   "active": true,
   "test_pattern": "_spec.cr",
-  "problems": [
-    "hello-world",
-    "hamming",
-    "gigasecond",
-    "rna-transcription",
-    "bob",
-    "raindrops",
-    "leap",
-    "pangram",
-    "largest-series-product",
-    "bracket-push",
-    "sieve",
-    "roman-numerals",
-    "atbash-cipher",
-    "anagram",
-    "react",
-    "acronym"
-  ],
   "exercises": [
     {
       "slug": "hello-world" ,
