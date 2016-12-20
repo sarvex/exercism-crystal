@@ -38,6 +38,22 @@ class Node(T)
     end
   end
 
+  def delete(delete_value)
+    return delete_node if delete_value == value
+
+    if delete_value < value
+      if (node = left)
+        @left = node.delete(delete_value)
+      end
+    else
+      if (node = right)
+        @right = node.delete(delete_value)
+      end
+    end
+
+    self
+  end
+
   def each
     TreeIterator.new(self).each do |v|
       yield v
@@ -46,6 +62,32 @@ class Node(T)
 
   def each
     TreeIterator.new(self)
+  end
+
+  private def delete_node
+    if one_child?
+      if left
+        @value = left.not_nil!.value
+        @left = nil
+      else
+        @value = right.not_nil!.value
+        @right = nil
+      end
+      self
+    elsif two_children?
+      node = right.not_nil!
+      @value = node.each.first
+      @right = node.delete(value)
+      self
+    end
+  end
+
+  private def one_child?
+    (left && !right) || (right && !left)
+  end
+
+  private def two_children?
+    left && right
   end
 
   private class TreeIterator(T)
