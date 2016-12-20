@@ -114,6 +114,17 @@
       ]
     },
     {
+      "slug": "binary-search-tree",
+      "difficulty": 1,
+      "topics": [
+        "data structures",
+        "algorithms",
+        "trees",
+        "recursion",
+        "iterators"
+      ]
+    },
+    {
       "slug": "run-length-encoding",
       "difficulty": 1,
       "topics": [

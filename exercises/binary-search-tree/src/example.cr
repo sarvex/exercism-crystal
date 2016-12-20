@@ -48,13 +48,6 @@ class Node(T)
     TreeIterator.new(self)
   end
 
-  private def process_left(node, stack)
-    while node
-      stack.push(node)
-      node = node.left
-    end
-  end
-
   private class TreeIterator(T)
     include Iterator(T)
 
