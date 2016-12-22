@@ -3,13 +3,13 @@ require "../src/*"
 
 describe "Node" do
   it "sets the root node" do
-    root = Node(Int32).new(1)
+    root = Node.new(1)
     root.value.should eq(1)
   end
 
   describe "#insert" do
     pending "inserts smaller values to the left" do
-      tree = Node(Int32).new(4)
+      tree = Node.new(4)
       tree.insert(2)
 
       left = tree.left.not_nil!
@@ -19,7 +19,7 @@ describe "Node" do
     end
 
     pending "inserts equal values to the left" do
-      tree = Node(Int32).new(4)
+      tree = Node.new(4)
       tree.insert(4)
 
       left_node = tree.left.not_nil!
@@ -29,7 +29,7 @@ describe "Node" do
     end
 
     pending "inserts greater values to the right" do
-      tree = Node(Int32).new(4)
+      tree = Node.new(4)
       tree.insert(5)
 
       right_node = tree.right.not_nil!
@@ -41,21 +41,21 @@ describe "Node" do
 
   describe "#search" do
     pending "will return a node if a search if successful" do
-      tree = Node(Int32).new(5)
+      tree = Node.new(5)
       tree.insert(1)
       node = tree.search(1).not_nil!
       node.value.should eq(1)
     end
 
     pending "will return nil if a searched value is not found" do
-      tree = Node(Int32).new(5)
+      tree = Node.new(5)
       tree.search(4).should be_nil
     end
   end
 
   describe "#each" do
     pending "traverses the tree in order" do
-      tree = Node(Int32).new(5)
+      tree = Node.new(5)
       tree.insert(1)
       tree.insert(6)
       tree.insert(7)
@@ -69,7 +69,7 @@ describe "Node" do
 
     # Bonus!
     pending "is an Enumerable" do
-      tree = Node(Int32).new(1)
+      tree = Node.new(1)
       tree.insert(5)
       tree.insert(2)
       tree.should be_a(Enumerable(Int32))
@@ -79,7 +79,7 @@ describe "Node" do
 
     # Advanced
     pending "will return an iterator if no block is provided" do
-      tree = Node(Int32).new(1)
+      tree = Node.new(1)
       tree.insert(5)
       tree.insert(2)
       iter = tree.each
@@ -90,7 +90,7 @@ describe "Node" do
 
     # Bonus!
     pending "is Iterable" do
-      tree = Node(Int32).new(100)
+      tree = Node.new(100)
       tree.insert(50)
       tree.insert(20)
       tree.insert(30)
@@ -109,21 +109,21 @@ describe "Node" do
   # 3. Deleting a node with two children
   describe "#delete" do
     pending "can remove the root node" do
-      tree = Node(Int32).new(5)
+      tree = Node.new(5)
       tree.insert(2)
       tree.delete(5)
       tree.value.should eq(2)
     end
 
     pending "removes a node with no children" do
-      tree = Node(Int32).new(5)
+      tree = Node.new(5)
       tree.insert(2)
       tree.delete(2)
       tree.left.should be_nil
     end
 
     pending "removes a node with one child" do
-      tree = Node(Int32).new(5)
+      tree = Node.new(5)
       tree.insert(3)
       tree.insert(2)
       tree.delete(3)
@@ -135,7 +135,7 @@ describe "Node" do
     end
 
     pending "removes a node with two children" do
-      tree = Node(Int32).new(5)
+      tree = Node.new(5)
       tree.insert(3)
       tree.insert(2)
       tree.insert(4)
@@ -148,7 +148,7 @@ describe "Node" do
     end
 
     pending "removes a left node with two child (complex)" do
-      tree = Node(Int32).new(10)
+      tree = Node.new(10)
       tree.insert(5)
       tree.insert(2)
       tree.insert(4)
@@ -164,7 +164,7 @@ describe "Node" do
     end
 
     pending "removes a right node with two children (complex)" do
-      tree = Node(Int32).new(1)
+      tree = Node.new(1)
       tree.insert(5)
       tree.insert(2)
       tree.insert(4)

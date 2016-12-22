@@ -6,7 +6,7 @@ class Node(T)
   property left : Node(T)?
   property right : Node(T)?
 
-  def initialize(@value : Comparable)
+  def initialize(@value : T)
   end
 
   def insert(new_value)
