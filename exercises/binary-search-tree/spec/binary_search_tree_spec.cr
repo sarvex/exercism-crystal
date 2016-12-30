@@ -1,7 +1,7 @@
 require "spec"
 require "../src/*"
 
-describe "Node" do
+describe "BinarySearchTree" do
   it "sets the root node" do
     root = Node.new(1)
     root.value.should eq(1)
@@ -65,40 +65,6 @@ describe "Node" do
       tree.each do |value|
         value.should eq(test_array.shift)
       end
-    end
-
-    # Bonus!
-    pending "is an Enumerable" do
-      tree = Node.new(1)
-      tree.insert(5)
-      tree.insert(2)
-      tree.should be_a(Enumerable(Int32))
-      mapped_values = tree.map { |value| value * 10 }
-      mapped_values.should eq([10, 20, 50])
-    end
-
-    # Advanced
-    pending "will return an iterator if no block is provided" do
-      tree = Node.new(1)
-      tree.insert(5)
-      tree.insert(2)
-      iter = tree.each
-      iter.next.should eq 1
-      iter.next.should eq 2
-      iter.next.should eq 5
-    end
-
-    # Bonus!
-    pending "is Iterable" do
-      tree = Node.new(100)
-      tree.insert(50)
-      tree.insert(20)
-      tree.insert(30)
-      tree.should be_a(Iterable(Int32))
-      iter = tree.each_cons(2)
-      iter.next.should eq([20, 30])
-      iter.next.should eq([30, 50])
-      iter.next.should eq([50, 100])
     end
   end
 
@@ -177,6 +143,48 @@ describe "Node" do
       tree.each do |value|
         value.should eq(new_values.shift)
       end
+    end
+  end
+
+  # The following tests check for additional features to the Binary Search Tree
+  # They are not required to implement a complete BST
+  # Instead they should be used to dive a little deeper into the Crystal language
+  describe "crystal-lang specific" do
+    # Make the Binary Search Tree Enumerable
+    # See https://crystal-lang.org/api/0.20.3/Enumerable.html
+    pending "is an Enumerable" do
+      tree = Node.new(1)
+      tree.insert(5)
+      tree.insert(2)
+      tree.should be_a(Enumerable(Int32))
+      mapped_values = tree.map { |value| value * 10 }
+      mapped_values.should eq([10, 20, 50])
+    end
+
+    # If no block is provided to the each method return an Iterator
+    # See https://crystal-lang.org/api/0.20.3/Iterator.html
+    pending "will return an iterator if no block is provided" do
+      tree = Node.new(1)
+      tree.insert(5)
+      tree.insert(2)
+      iter = tree.each
+      iter.next.should eq 1
+      iter.next.should eq 2
+      iter.next.should eq 5
+    end
+
+    # Make the Binary Search Tree Iterable
+    # See https://crystal-lang.org/api/0.20.3/Iterable.html
+    pending "is Iterable" do
+      tree = Node.new(100)
+      tree.insert(50)
+      tree.insert(20)
+      tree.insert(30)
+      tree.should be_a(Iterable(Int32))
+      iter = tree.each_cons(2)
+      iter.next.should eq([20, 30])
+      iter.next.should eq([30, 50])
+      iter.next.should eq([50, 100])
     end
   end
 end
