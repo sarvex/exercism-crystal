@@ -1,4 +1,4 @@
-# xCrystal [![Build Status](https://travis-ci.org/exercism/xcrystal.svg?branch=master)](https://travis-ci.org/exercism/xcrystal)
+# xCrystal [![Build Status](https://travis-ci.org/exercism/crystal.svg?branch=master)](https://travis-ci.org/exercism/crystal)
 
 Exercism problems in Crystal.
 
@@ -22,7 +22,7 @@ $ make test-exercise EXERCISE=exercise-name
 
 ### Creating a New Generator
 
-Navigate to `src/generator/exercises` and create a new generator file (i.e. `hello_world.cr`).
+Navigate to `generator/src/generators` and create a new generator file (i.e. `hello_world.cr`).
 
 This file should contain 2 classes:
 * An exercise generator which must inherit from the ExerciseGenerator class.
@@ -32,15 +32,15 @@ The x-common repo must reside at the same level as the developer's crystal direc
 
 ### Running the Generator
 
-From within the xcrystal directory:
+From within the crystal directory:
 ```bash
-$ crystal src/generator/generate.cr hello-world
+$ crystal generator/generate.cr hello-world
 ```
 
 Or build a binary:
 ```bash
-$ make build_generator
-$ bin/generate hello-world
+$ make build-generator
+$ bin/generate-exercise hello-world
 ```
 
 ## Contributing Guide
