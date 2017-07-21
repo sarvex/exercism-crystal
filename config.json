@@ -1,7 +1,5 @@
 {
-  "slug": "crystal",
   "language": "Crystal",
-  "repository": "https://github.com/exercism/crystal",
   "active": true,
   "test_pattern": "_spec.cr",
   "exercises": [
