@@ -7,7 +7,7 @@ class BinaryGenerator < ExerciseGenerator
   end
 
   def test_cases
-    JSON.parse(data)["decimal"].map do |test_case|
+    JSON.parse(data)["cases"].map do |test_case|
       BinaryTestCase.new(test_case)
     end
   end
@@ -29,7 +29,7 @@ class BinaryTestCase < ExerciseTestCase
       "Binary.to_decimal(\"#{binary}\").should eq(#{expected})"
     else
       <<-WL
-      expect_raises do
+      expect_raises(ArgumentError) do
             Binary.to_decimal(\"#{binary}\")
           end
       WL
