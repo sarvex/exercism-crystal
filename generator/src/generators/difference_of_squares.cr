@@ -7,10 +7,9 @@ class DifferenceOfSquaresGenerator < ExerciseGenerator
   end
 
   def test_cases
-    ["square_of_sum", "sum_of_squares", "difference_of_squares"]
-      .reduce(Array(ExerciseTestCase).new) do |cases, type|
-      cases + JSON.parse(data)[type]["cases"].map do |test_case|
-        DifferenceOfSquaresTestCase.new(test_case, type)
+    JSON.parse(data)["cases"].flat_map do |case_group|
+      case_group["cases"].map do |test_case|
+        DifferenceOfSquaresTestCase.new(test_case)
       end
     end
   end
@@ -22,9 +21,9 @@ class DifferenceOfSquaresTestCase < ExerciseTestCase
   private getter expected : JSON::Any?
   private getter type : String
 
-  def initialize(test_case, type)
-    @type = type
-    @number = test_case["number"]
+  def initialize(test_case)
+    @type = test_case["property"].as_s.gsub(/([A-Z])/, "_\\1").downcase
+    @number = test_case["input"]["number"]
     @description = test_case["description"]
     @expected = test_case["expected"]?
   end
