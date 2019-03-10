@@ -49,6 +49,8 @@ generate-exercises:
 	@for generator in $(GENERATORS); do GENERATOR=$$generator $(MAKE) -s generate-exercise || exit 1; done
 
 test-generator:
+	@echo "running formatting check for generators"
+	@crystal tool format --check $(GENERATORDIR)
 	@echo "running generator tests"
 	@cd $(GENERATORDIR) && shards install && crystal spec
 
