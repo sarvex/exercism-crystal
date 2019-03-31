@@ -9,28 +9,28 @@ end
 
 describe "Leap" do
   describe "#leap?" do
-    it "marks 1996 as a leap year" do
+    it "year not divisible by 4 in common year" do
+      Year.leap?(2015).should be_false
+    end
+
+    pending "year divisible by 2, not divisible by 4 in common year" do
+      Year.leap?(1970).should be_false
+    end
+
+    pending "year divisible by 4, not divisible by 100 in leap year" do
       Year.leap?(1996).should be_true
     end
 
-    pending "marks 1997 not as a leap year" do
-      Year.leap?(1997).should be_false
+    pending "year divisible by 100, not divisible by 400 in common year" do
+      Year.leap?(2100).should be_false
     end
 
-    pending "marks 1998 not as a leap year" do
-      Year.leap?(1998).should be_false
-    end
-
-    pending "marks 1900 not as a leap year" do
-      Year.leap?(1900).should be_false
-    end
-
-    pending "marks 2400 as a leap year" do
-      Year.leap?(2400).should be_true
-    end
-
-    pending "marks 2000 as a leap year" do
+    pending "year divisible by 400 in leap year" do
       Year.leap?(2000).should be_true
+    end
+
+    pending "year divisible by 200, not divisible by 400 in common year" do
+      Year.leap?(1800).should be_false
     end
   end
 end
