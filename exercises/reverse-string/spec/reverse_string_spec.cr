@@ -21,4 +21,8 @@ describe "ReverseString" do
   pending "a palindrome" do
     ReverseString.reverse("racecar").should eq("racecar")
   end
+
+  pending "an even-sized word" do
+    ReverseString.reverse("drawer").should eq("reward")
+  end
 end
