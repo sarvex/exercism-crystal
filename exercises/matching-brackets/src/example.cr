@@ -1,8 +1,8 @@
-module Brackets
+module MatchingBrackets
   extend self
   MAP = {'}' => '{', ']' => '[', ')' => '('}
 
-  def are_valid?(str : String)
+  def valid?(str : String)
     create_stack(filter_brackets(str)).size == 0
   end
 
