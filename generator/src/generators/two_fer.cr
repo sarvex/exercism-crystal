@@ -1,5 +1,5 @@
 require "../exercise_generator"
-require "../exercise_test_case"
+require "../test_cases"
 
 class TwoFerGenerator < ExerciseGenerator
   def exercise_name
@@ -7,9 +7,7 @@ class TwoFerGenerator < ExerciseGenerator
   end
 
   def test_cases
-    JSON.parse(data)["cases"].as_a.map do |test_case|
-      TwoFerTestCase.from_json(test_case.to_json)
-    end
+    TestCases(TwoFerTestCase).from_json(data).cases
   end
 end
 

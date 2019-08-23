@@ -1,5 +1,5 @@
 require "../exercise_generator"
-require "../exercise_test_case"
+require "../test_case_group"
 
 class AllergiesGenerator < ExerciseGenerator
   def exercise_name
@@ -7,11 +7,7 @@ class AllergiesGenerator < ExerciseGenerator
   end
 
   def test_cases
-    JSON.parse(data)["cases"].as_a.flat_map do |case_group|
-      case_group["cases"].as_a.map do |test_case|
-        AllergiesTestCase.from_json(test_case.to_json)
-      end
-    end
+    TestCaseGroup(AllergiesTestCase).from_json(data).all_cases
   end
 end
 

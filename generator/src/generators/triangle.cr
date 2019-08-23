@@ -1,6 +1,5 @@
 require "../exercise_generator"
-require "../exercise_test_case"
-require "json"
+require "../test_case_group"
 
 class TriangleGenerator < ExerciseGenerator
   def exercise_name
@@ -8,11 +7,7 @@ class TriangleGenerator < ExerciseGenerator
   end
 
   def test_cases
-    JSON.parse(data)["cases"].as_a.flat_map do |category|
-      category["cases"].as_a.map do |test_case|
-        TriangleTestCase.from_json(test_case.to_json)
-      end
-    end
+    TestCaseGroup(TriangleTestCase).from_json(data).all_cases
   end
 end
 

@@ -1,5 +1,5 @@
 require "../exercise_generator"
-require "../exercise_test_case"
+require "../test_case_group"
 
 class SecretHandshakeGenerator < ExerciseGenerator
   def exercise_name
@@ -7,9 +7,7 @@ class SecretHandshakeGenerator < ExerciseGenerator
   end
 
   def test_cases
-    JSON.parse(data)["cases"][0]["cases"].as_a.map do |test_case|
-      SecretHandshakeTestCase.from_json(test_case.to_json)
-    end
+    TestCaseGroup(SecretHandshakeTestCase).from_json(data).cases[0].cases
   end
 end
 

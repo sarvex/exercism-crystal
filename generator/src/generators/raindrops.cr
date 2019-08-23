@@ -1,5 +1,5 @@
 require "../exercise_generator"
-require "../exercise_test_case"
+require "../test_cases"
 
 class RaindropsGenerator < ExerciseGenerator
   def exercise_name
@@ -7,9 +7,7 @@ class RaindropsGenerator < ExerciseGenerator
   end
 
   def test_cases
-    JSON.parse(data)["cases"].as_a.map do |test_case|
-      RaindropsTestCase.from_json(test_case.to_json)
-    end
+    TestCases(RaindropsTestCase).from_json(data).cases
   end
 end
 
