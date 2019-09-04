@@ -1,18 +1,30 @@
-module SpaceAge
-  extend self
+module Space
+  struct Age
+    SECONDS_PER_EARTH_YEAR = 31557600
+    EARTH_YEARS_ON_PLANET  = {
+      mercury: 0.2408467,
+      venus:   0.61519726,
+      mars:    1.8808158,
+      jupiter: 11.862615,
+      saturn:  29.447498,
+      uranus:  84.016846,
+      neptune: 164.79132,
+    }
 
-  @@times = {
-    "Earth"   => 31557600,
-    "Mercury" => 7600543.81,
-    "Venus"   => 19411026.17,
-    "Mars"    => 59359776.78,
-    "Jupiter" => 374222565.14,
-    "Saturn"  => 928792569.65,
-    "Uranus"  => 2652994591.73,
-    "Neptune" => 5196280668.35,
-  } of String => Float64
+    {% for planet, conv_fact in EARTH_YEARS_ON_PLANET %}
+      def age_on_{{planet.id}}
+        @years / {{conv_fact}}
+      end
+    {% end %}
 
-  def age(planet : String, seconds : Int32) : Float64
-    (seconds / @@times[planet]).round(2)
+    def age_on_earth
+      @years
+    end
+
+    def Age.from_seconds(seconds : Int32) : Age
+      new years: (seconds.to_f / SECONDS_PER_EARTH_YEAR)
+    end
+
+    def initialize(@years : Float64); end
   end
 end
