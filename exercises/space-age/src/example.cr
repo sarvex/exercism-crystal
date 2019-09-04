@@ -1,34 +1,21 @@
 module Space
   struct Age
     SECONDS_PER_EARTH_YEAR = 31557600
+    EARTH_YEARS_ON_PLANET  = {
+      mercury: 0.2408467,
+      venus:   0.61519726,
+      mars:    1.8808158,
+      jupiter: 11.862615,
+      saturn:  29.447498,
+      uranus:  84.016846,
+      neptune: 164.79132,
+    }
 
-    def age_on_mercury
-      @years / 0.2408467
-    end
-
-    def age_on_venus
-      @years / 0.61519726
-    end
-
-    def age_on_mars
-      @years / 1.8808158
-    end
-
-    def age_on_jupiter
-      @years / 11.862615
-    end
-
-    def age_on_saturn
-      @years / 29.447498
-    end
-
-    def age_on_uranus
-      @years / 84.016846
-    end
-
-    def age_on_neptune
-      @years / 164.79132
-    end
+    {% for planet, conv_fact in EARTH_YEARS_ON_PLANET %}
+      def age_on_{{planet.id}}
+        @years / {{conv_fact}}
+      end
+    {% end %}
 
     def age_on_earth
       @years
