@@ -1,17 +1,13 @@
 require "../exercise_generator"
-require "../exercise_test_case"
+require "../test_cases"
 
 class SpaceAgeGenerator < ExerciseGenerator
-  record TestCases, cases : Array(SpaceAgeTestCase) do
-    include JSON::Serializable
-  end
-
   def exercise_name
     "space-age"
   end
 
   def test_cases
-    TestCases.from_json(data).cases
+    TestCases(SpaceAgeTestCase).from_json(data).cases
   end
 end
 

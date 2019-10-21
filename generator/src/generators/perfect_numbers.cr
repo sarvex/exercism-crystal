@@ -1,5 +1,5 @@
 require "../exercise_generator"
-require "../exercise_test_case"
+require "../test_case_group"
 
 class PerfectNumbersGenerator < ExerciseGenerator
   def exercise_name
@@ -7,11 +7,7 @@ class PerfectNumbersGenerator < ExerciseGenerator
   end
 
   def test_cases
-    JSON.parse(data)["cases"].as_a.flat_map do |case_group|
-      case_group["cases"].as_a.map do |test_case|
-        PerfectNumbersTestCase.from_json(test_case.to_json)
-      end
-    end
+    TestCaseGroup(PerfectNumbersTestCase).from_json(data).all_cases
   end
 end
 

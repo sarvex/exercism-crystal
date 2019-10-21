@@ -2,20 +2,35 @@ require "../exercise_generator"
 require "../exercise_test_case"
 
 class ResistorColorGenerator < ExerciseGenerator
+  struct TestCases
+    struct Group
+      include JSON::Serializable
+      property cases : Array(ResistorColorTestCase)
+    end
+
+    include JSON::Serializable
+    property cases : Array(ResistorColorTestCase | Group)
+
+    def color_code_cases : Array(ResistorColorTestCase)
+      cases.find(&.is_a?(Group)).not_nil!.as(Group).cases
+    end
+
+    def colors_case
+      cases.find(&.is_a?(ResistorColorTestCase)).not_nil!.as(ResistorColorTestCase)
+    end
+
+    @[JSON::Field(ignore: true)]
+    property all_cases : Array(ResistorColorTestCase) do
+      color_code_cases << colors_case
+    end
+  end
+
   def exercise_name
     "resistor-color"
   end
 
   def test_cases
-    canonical_data = JSON.parse(data)
-
-    # colorCode test cases
-    test_cases = canonical_data["cases"][0]["cases"].as_a.map do |test_case|
-      ResistorColorTestCase.from_json(test_case.to_json)
-    end
-
-    # colors test case
-    test_cases.push(ResistorColorTestCase.from_json(canonical_data["cases"][1].to_json))
+    TestCases.from_json(data).all_cases
   end
 end
 

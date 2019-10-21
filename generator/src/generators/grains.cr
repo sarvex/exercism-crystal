@@ -1,22 +1,36 @@
 require "../exercise_generator"
-require "../exercise_test_case"
+require "../test_case_group"
 
 class GrainsGenerator < ExerciseGenerator
+  struct TestCases
+    struct Group
+      include JSON::Serializable
+      property cases : Array(GrainsTestCase)
+    end
+
+    include JSON::Serializable
+    property cases : Array(GrainsTestCase | Group)
+
+    def total_case : GrainsTestCase
+      cases.find(&.is_a?(GrainsTestCase)).not_nil!.as GrainsTestCase
+    end
+
+    def square_cases : Array(GrainsTestCase)
+      cases.find(&.is_a?(Group)).not_nil!.as(Group).cases
+    end
+
+    @[JSON::Field(ignore: true)]
+    property all_cases : Array(GrainsTestCase) do
+      square_cases << total_case
+    end
+  end
+
   def exercise_name
     "grains"
   end
 
   def test_cases
-    canonical_data = JSON.parse(data)
-    # square test cases
-    test_cases = canonical_data["cases"][0]["cases"].as_a.map do |test_case|
-      GrainsTestCase.from_json(test_case.to_json)
-    end
-
-    # total test cases
-    test_cases.push(GrainsTestCase.from_json(canonical_data["cases"][1].to_json))
-
-    return test_cases
+    TestCases.from_json(data).all_cases
   end
 end
 

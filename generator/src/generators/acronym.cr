@@ -1,5 +1,5 @@
 require "../exercise_generator"
-require "../exercise_test_case"
+require "../test_case_group"
 
 class AcronymGenerator < ExerciseGenerator
   def exercise_name
@@ -7,9 +7,7 @@ class AcronymGenerator < ExerciseGenerator
   end
 
   def test_cases
-    JSON.parse(data)["cases"].as_a.first["cases"].as_a.map do |test_case|
-      AcronymTestCase.from_json(test_case.to_json)
-    end
+    TestCaseGroup(AcronymTestCase).from_json(data).cases[0].cases
   end
 end
 

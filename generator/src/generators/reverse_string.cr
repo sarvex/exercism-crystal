@@ -1,5 +1,5 @@
 require "../exercise_generator"
-require "../exercise_test_case"
+require "../test_cases"
 
 class ReverseStringGenerator < ExerciseGenerator
   def exercise_name
@@ -7,9 +7,7 @@ class ReverseStringGenerator < ExerciseGenerator
   end
 
   def test_cases
-    JSON.parse(data)["cases"].as_a.map do |test_case|
-      ReverseStringTestCase.from_json(test_case.to_json)
-    end
+    TestCases(ReverseStringTestCase).from_json(data).cases
   end
 end
 
