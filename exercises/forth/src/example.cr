@@ -144,7 +144,7 @@ class Forth
     when "*"
       pop_twice { |a, b| stack.push(b * a) }
     when "/"
-      pop_twice { |a, b| stack.push(b / a) }
+      pop_twice { |a, b| stack.push(b // a) }
     when "DUP"
       pop_once { |a| stack.push(a).push(a) }
     when "DROP"

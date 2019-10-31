@@ -7,10 +7,12 @@ module AllYourBase
 
   private def convert_to_output_base(number : Int32, base : Int32) : Array(Int32)
     result = [] of Int32
+
     while number >= base
       result << number % base
-      number /= base
+      number //= base
     end
+
     result << number % base
     result.reverse
   end
