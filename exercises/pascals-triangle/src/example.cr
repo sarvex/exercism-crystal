@@ -13,7 +13,7 @@ class PascalsTriangle
   def next
     @m += 1
     @m.times.reduce([1]) do |row, k|
-      row << (row[k] * (@m - k) / (k + 1))
+      row << (row[k] * (@m - k) // (k + 1))
     end
   end
 end

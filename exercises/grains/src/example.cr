@@ -7,6 +7,6 @@ module Grains
   end
 
   def total : UInt64
-    (2**64 - 1).to_u64
+    (2.to_u128**64 - 1).to_u64
   end
 end
