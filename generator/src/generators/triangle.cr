@@ -14,7 +14,7 @@ end
 class TriangleTestCase < ExerciseTestCase
   class Input
     JSON.mapping(
-      sides: Tuple(Int32, Int32, Int32)
+      sides: Tuple(Int32 | Float32, Int32 | Float32, Int32 | Float32)
     )
 
     def to_s(io)
