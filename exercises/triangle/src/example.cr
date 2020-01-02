@@ -1,6 +1,6 @@
 class Triangle
   def initialize(sides)
-    @sides = sides
+    @sides = sides.to_a
     @sides = [] of Int32 if illegal?
   end
 
