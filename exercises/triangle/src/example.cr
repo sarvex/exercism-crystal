@@ -1,6 +1,8 @@
 class Triangle
-  def initialize(sides)
-    @sides = sides
+  @sides : Array(Int32) | Array(Float64)
+
+  def initialize(sides : Tuple(Int32, Int32, Int32) | Tuple(Float64, Float64, Float64))
+    @sides = sides.to_a
     @sides = [] of Int32 if illegal?
   end
 
