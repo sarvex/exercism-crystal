@@ -3,7 +3,7 @@ class Triangle
 
   def initialize(sides : Tuple(Int32, Int32, Int32) | Tuple(Float64, Float64, Float64))
     @sides = sides.to_a
-    @sides = [] of Int32 if illegal?
+    raise ArgumentError.new("illegal triangle") if illegal?
   end
 
   def equilateral?

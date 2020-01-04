@@ -20,6 +20,11 @@ class TriangleTestCase < ExerciseTestCase
     def to_s(io)
       io << "{#{sides.map { |s| s.to_i == s.to_f ? s.to_i : s.to_s }.join(", ")}}"
     end
+
+    def valid_triangle?
+      sorted_sides = sides.to_a.sort
+      sides.all?(&.>(0)) && sorted_sides.last < sorted_sides.first(2).sum
+    end
   end
 
   JSON.mapping(
@@ -30,7 +35,15 @@ class TriangleTestCase < ExerciseTestCase
   )
 
   def workload
-    "Triangle.new(#{input}).#{property}?.should eq(#{expected})"
+    if input.valid_triangle?
+      "Triangle.new(#{input}).#{property}?.should eq(#{expected})"
+    else
+      <<-WL
+      expect_raises(ArgumentError) do
+            Triangle.new(#{input})
+          end
+      WL
+    end
   end
 
   def test_name
