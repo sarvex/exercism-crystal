@@ -19,5 +19,4 @@ jobs:
       - uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b
       - name: Run tests
         run: make test-exercises
-        # TODO: fix generators
-        #run: make test-generator
+        run: make test-generator
