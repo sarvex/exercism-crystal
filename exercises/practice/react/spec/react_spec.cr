@@ -7,7 +7,7 @@ describe React::InputCell do
     input.value.should eq 10
   end
 
-  it "can have values set" do
+  pending "can have values set" do
     input = React::InputCell.new(4)
     input.value = 20
     input.value.should eq 20
@@ -15,27 +15,27 @@ describe React::InputCell do
 end
 
 describe React::ComputeCell do
-  it "calculate initial value" do
+  pending "calculate initial value" do
     input = React::InputCell.new(1)
     output = React::ComputeCell.new(input) { |v| v + 1 }
     output.value.should eq 2
   end
 
-  it "take input in the right order" do
+  pending "take input in the right order" do
     one = React::InputCell.new(1)
     two = React::InputCell.new(2)
     output = React::ComputeCell.new(one, two) { |v1, v2| v1 + v2 * 10 }
     output.value.should eq 21
   end
 
-  it "update value when dependencies are changed" do
+  pending "update value when dependencies are changed" do
     one = React::InputCell.new(1)
     output = React::ComputeCell.new(one) { |v| v + 1 }
     one.value = 3
     output.value.should eq 4
   end
 
-  it "can depend on other compute cells" do
+  pending "can depend on other compute cells" do
     input = React::InputCell.new(1)
     times_two = React::ComputeCell.new(input) { |v| v * 2 }
     times_thirty = React::ComputeCell.new(input) { |v| v * 30 }
@@ -46,7 +46,7 @@ describe React::ComputeCell do
   end
 
   describe "callbacks" do
-    it "are fired on change" do
+    pending "are fired on change" do
       values = [] of Int32
       input = React::InputCell.new(1)
       output = React::ComputeCell.new(input) { |v| v + 1 }
@@ -55,7 +55,7 @@ describe React::ComputeCell do
       values.should eq [4]
     end
 
-    it "are not fired if no change" do
+    pending "are not fired if no change" do
       values = [] of Int32
       input = React::InputCell.new(1)
       output = React::ComputeCell.new(input) { |v| v < 3 ? 111 : 222 }
@@ -66,7 +66,7 @@ describe React::ComputeCell do
       values.should eq [222]
     end
 
-    it "can be added and removed" do
+    pending "can be added and removed" do
       values1 = [] of Int32
       values2 = [] of Int32
       values3 = [] of Int32
@@ -85,7 +85,7 @@ describe React::ComputeCell do
       values3.should eq [42]
     end
 
-    it "don't interfere with other callbacks if removed multiple times" do
+    pending "don't interfere with other callbacks if removed multiple times" do
       values1 = [] of Int32
       values2 = [] of Int32
       input = React::InputCell.new(1)
@@ -98,7 +98,7 @@ describe React::ComputeCell do
       values2.should eq [3]
     end
 
-    it "are called only once even if multiple dependencies change" do
+    pending "are called only once even if multiple dependencies change" do
       values = [] of Int32
       input = React::InputCell.new(1)
       plus_one = React::ComputeCell.new(input) { |v| v + 1 }
@@ -110,7 +110,7 @@ describe React::ComputeCell do
       values.should eq [10]
     end
 
-    it "are not called if dependencies change in such a way that final value doesn't change" do
+    pending "are not called if dependencies change in such a way that final value doesn't change" do
       values = [] of Int32
       input = React::InputCell.new(1)
       plus_one = React::ComputeCell.new(input) { |v| v + 1 }
