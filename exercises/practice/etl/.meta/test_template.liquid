@@ -1,0 +1,13 @@
+{%- assign first = true -%}
+require "spec"
+require "../src/*"
+
+describe "{{- json.exercise_cammel | upcase -}}" do
+{%- for cases in  json.cases %}
+        {% include "./bin/extra-templates/generator_help", first: first %} "{{ cases.description }}" do
+        input = {{ cases.input.legacy }}
+        output = {{ cases.expected }}
+        {{ json.exercise_cammel | upcase}}.{{ cases.property | underscore }}(input).should eq(output)
+    end
+{% endfor %}
+end

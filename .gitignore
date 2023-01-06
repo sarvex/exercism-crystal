@@ -23,3 +23,5 @@ generator/lib
 generator/.shards
 generator/bin
 generator/bin/generator
+lib
+shards.lock
