@@ -1,86 +1,101 @@
-# Exercism Crystal Track
+<br>
 
-[![Build Status](https://github.com/exercism/crystal/workflows/Tests/badge.svg?branch=main)](https://github.com/exercism/crystal/actions?query=workflow%3ATests+branch%3Amain)
+<img align="left" width="90" height="90" src="https://github.com/exercism/website-icons/blob/main/tracks/crystal.svg">
+<p vertical-align="middle"><h1>Exercism Crystal Track</h1></p>
 
-Exercism problems in Crystal.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Discourse topics](https://img.shields.io/discourse/topics?color=8A08E6&label=Connect%20&labelColor=FFDF58&logo=Discourse&logoColor=8A08E6&server=https%3A%2F%2Fforum.exercism.org&style=social)](https://forum.exercism.org)
+&nbsp;[![Exercism_II](https://img.shields.io/badge/Exercism--Built-9101FF?logo=crystal&logoColor=000000&labelColor=E5E5E5&label=Crystal%201.2.2%20Powered)](https://exercism.org)
+&nbsp;[![Exercism_III](https://img.shields.io/badge/Temporary%20Paused-FF6626?labelColor=3D454D&label=Contributions)](https://exercism.org/blog/freeing-our-maintainers) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Build Status](https://github.com/exercism/crystal/workflows/Exercises%20check/badge.svg)](https://github.com/exercism/crystal/actions/workflows/tests.yml)
 
-## The Tests
+<br>
 
-### All Exercises
+Hi. &nbsp;👋🏽 &nbsp;👋 &nbsp;**We are happy you are here.**&nbsp; 🎉&nbsp;🌟
 
-Test all exercises with:
-```shell
-make test-exercises
-```
+<br>
 
-### Single Exercises
+**`exercism/Crystal`** is one of many programming language tracks on [exercism(dot)org][exercism-website].
+This repo holds all the instructions, tests, code, & support files for Crystal _exercises_ currently under development or implemented & available for students.
 
-Test single exercises with:
-```shell
-make test-exercise EXERCISE=directory/exercise-name
+🌟 &nbsp;&nbsp;Track tooling (_test-runner and Continuous Integration_) runs on Crystal `1.2.2`. <br>
+🌟 &nbsp;&nbsp;Most exercises is solvable with Crystal `1.0.0` or higher.
 
-# Example
-make test-exercise EXERCISE=practice/acronym
-```
+This track is made up of **Practice Exercises**. Practice exercises are open-ended, and can be used to practice concepts learned, try out new techniques, and play.
 
-## The Test Generator
+<br><br>
 
-### Creating a New Generator
+<div>
+<span>
+<img align="left" height="60" width="85" src="https://user-images.githubusercontent.com/5923094/204436863-2ebf34d1-4b16-486b-9e0a-add36f4c09c1.svg">
+</span>
+<span align="left">
 
-Navigate to `generator/src/generators` and create a new generator file (i.e. `hello_world.cr`).
+🌟🌟&nbsp; Please take a moment to read our [Code of Conduct][exercism-code-of-conduct]&nbsp;🌟🌟&nbsp;  
+It might also be helpful to look at [Being a Good Community Member][being-a-good-community-member] & [The words that we use][the-words-that-we-use].
 
-This file should contain 2 classes:
-* An exercise generator which must inherit from the ExerciseGenerator class.
-* A test case class which inherits from ExerciseTestCase.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Some defined roles in our community: [Contributors][exercism-contributors] **|** [Mentors][exercism-mentors] **|** [Maintainers][exercism-track-maintainers] **|** [Admins][exercism-admins]
 
-There are two ways for the generator to get the test data.
+</span></div>
 
-**Local:**
-The problem-specifications repo must reside at the same level as the developer's crystal directory, and must contain a canonical-data.json file for the given exercise.
+<br>
+<img align="left" width="90" height="85" src="https://github.com/exercism/website-icons/blob/main/exercises/health-statistics.svg">
 
-**Remote:**
-If the local problem-specifications repo doesn't exist, a request is made to GitHub to download (and cache) the test's canonical-data.json file.
+We&nbsp;💛&nbsp;💙 &nbsp;our community.
+But currently, the track tooling needs review and changing/updating.  
+This overhaul will make it easier for us to maintain the track, and also make it easier for you to contribute.  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**`Therefore are our maintainers not accepting community contributions at this time.`**  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Please read this [community blog post](https://exercism.org/blog/freeing-our-maintainers) for details.
 
-### Running the Generator for a Single Exercise
+<br>
+<img align="left" width="95" height="85" src="https://github.com/exercism/website-icons/blob/main/exercises/boutique-suggestions.svg">
 
-From within the crystal directory:
-```shell
-crystal generator/generator.cr hello-world
-```
+Here to suggest a new feature or new exercise?? **Hooray!** &nbsp;🎉 &nbsp;  
+We'd love if you did that via our [Exercism Community Forum](https://forum.exercism.org/).  
+Please keep in mind [Chesterton's Fence][chestertons-fence].  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_Thoughtful suggestions will likely result faster & more enthusiastic responses from volunteers._
 
-Or build a binary and use that:
-```shell
-make generate-exercise GENERATOR=hello-world
-```
+<br>
 
-NOTE: A binary version of the generator is built automatically when needed for a given make target, but you may build it manually at any time by running `make build-generator` (or rebuild it with `make clean build-generator`).
+<img align="left" width="85" height="80" src="https://github.com/exercism/website-icons/blob/main/exercises/word-search.svg">
 
-### Running (or Re-running) the Generator for All Exercises
+✨&nbsp;🦄&nbsp; _**Want to jump directly into Exercism specifications & detail?**_  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Structure][exercism-track-structure] **|** [Tasks][exercism-tasks] **|** [Concepts][exercism-concepts] **|** [Concept Exercises][concept-exercises] **|** [Practice Exercises][practice-exercises] **|** [Presentation][exercise-presentation]  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Writing Style Guide][exercism-writing-style] **|** [Markdown Specification][exercism-markdown-specification] (_✨ version in [contributing][website-contributing-section] on exercism.org_)
 
-This can be used for refreshing the tests when changes are made to the [problem-specifications](https://github.com/exercism/problem-specifications) repo. Or for testing the full functionality of the test generator.
+<br><br>
 
-```shell
-make generate-exercises
-```
+## Crystal Software and Documentation
 
-### Testing the Generator
+**Copyright © 2012-2022 Manas Technology Solutions. All rights reserved.**
 
-```shell
-make test-generator
-```
+Crystal software and documentation are licensed under the [Apache License v2.0][crystal-license].
 
-### Cleaning up
+## Exercism Crystal License
 
-```shell
-make clean
-```
+This repository uses the [MIT License](/LICENSE).
 
-Use this command to delete any transient files and build artifacts. This is potentially useful for troubleshooting purposes as it will purge any stale cached files, rebuild the generator when needed and can be combined with other make targets (e.g. `make clean test`).
+## Final Note
 
-## Contributing Guide
+Thanks to Bethany for the allowing us to use her [template][exercism-template] for this README.
 
-Please see the [contributing guide](https://github.com/exercism/x-api/blob/master/CONTRIBUTING.md#the-exercise-data)
-
-
-### Crystal logo
-The Crystal logo is assumed to be owned by Manas SA. It appears to be released under version 2.0 of the Apache license, along with the Crystal codebase. It may also fall within the public domain, since the version we are using is a geometric shape. We have cropped it for use on Exercism.
+[being-a-good-community-member]: https://github.com/exercism/docs/tree/main/community/good-member
+[chestertons-fence]: https://github.com/exercism/docs/blob/main/community/good-member/chestertons-fence.md
+[concept-exercises]: https://github.com/exercism/docs/blob/main/building/tracks/concept-exercises.md
+[config-json]: https://github.com/exercism/crystal/blob/main/config.json
+[crystal-license]: https://github.com/crystal-lang/crystal/blob/master/LICENSE
+[exercise-presentation]: https://github.com/exercism/docs/blob/main/building/tracks/presentation.md
+[exercism-admins]: https://github.com/exercism/docs/blob/main/community/administrators.md
+[exercism-code-of-conduct]: https://exercism.org/docs/using/legal/code-of-conduct
+[exercism-concepts]: https://github.com/exercism/docs/blob/main/building/tracks/concepts.md
+[exercism-contributors]: https://github.com/exercism/docs/blob/main/community/contributors.md
+[exercism-markdown-specification]: https://github.com/exercism/docs/blob/main/building/markdown/markdown.md
+[exercism-mentors]: https://github.com/exercism/docs/tree/main/mentoring
+[exercism-tasks]: https://exercism.org/docs/building/product/tasks
+[exercism-template]: https://github.com/exercism/python/blob/main/README.md
+[exercism-track-maintainers]: https://github.com/exercism/docs/blob/main/community/maintainers.md
+[exercism-track-structure]: https://github.com/exercism/docs/tree/main/building/tracks
+[exercism-website]: https://exercism.org/
+[exercism-writing-style]: https://github.com/exercism/docs/blob/main/building/markdown/style-guide.md
+[practice-exercises]: https://github.com/exercism/docs/blob/main/building/tracks/practice-exercises.md
+[the-words-that-we-use]: https://github.com/exercism/docs/blob/main/community/good-member/words.md
+[website-contributing-section]: https://exercism.org/docs/building
