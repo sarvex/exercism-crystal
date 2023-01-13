@@ -3,10 +3,10 @@ on:
   pull_request:
   push:
     branches:
-    - main
+      - main
   schedule:
     # Weekly.
-    - cron: "0 0 * * 0"
+    - cron: '0 0 * * 0'
 
 jobs:
   exercises:
@@ -20,4 +20,4 @@ jobs:
       - name: Run tests
         run: make test-exercises
       - name: Run generator tests
-        run: make test-generator
+        run: ./bin/test_specs

@@ -8,23 +8,28 @@ class Formatter
         if (line.gsub(" ", "")[index + 1] == '{' || line.gsub(" ", "")[index + 1] == '[') && (line[-1] == ']' || line[-1] == '}') && index != -1
           line_2 = line
           count_characters = 0
-          count_lines = 1
+          count_lines = 2
           brackets = [] of Char
           line_2.each_char.with_index do |character, index|
             if ("[](){}".includes?(character.to_s) && (brackets[-1]? != '"' || brackets[-1]?.nil?)) || '"' == character
               if "[({".includes?(character.to_s) || (brackets[-1]? != '"' && '"' == character)
+                if brackets.empty?
+                  line = line.insert(index + 1, "\n")
+                  count_characters = 0
+                end
                 brackets << character
               else
                 brackets.pop
               end
             end
             count_characters += 1
-            if character == ',' && count_characters > 100 && index > 1 && brackets.size == 1
+            if character == ',' && count_characters > 90 && index > 1 && brackets.size == 1
               line = line.insert(index + count_lines, "\n")
               count_characters = 0
               count_lines += 1
             end
           end
+          line = line.insert(-2, "\n")
         end
       end
       line

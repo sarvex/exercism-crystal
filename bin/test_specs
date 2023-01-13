@@ -9,6 +9,8 @@ error() {
     exit 1
 }
 
+shards install
+
 # Temporary directory for holding copies of the specs.
 tmpdir="$(mktemp -d)" || error "Failed to make a temp directory."
 trap 'rm -r "${tmpdir}"' EXIT
