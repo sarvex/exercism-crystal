@@ -29,6 +29,6 @@ class Bob
   end
 
   def self.question?(string : String)
-    string[string.size - 1] == '?'
+    string.strip.ends_with?('?')
   end
 end
