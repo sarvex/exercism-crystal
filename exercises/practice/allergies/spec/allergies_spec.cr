@@ -167,34 +167,38 @@ describe "Allergies" do
   end
 
   pending "just eggs" do
-    Allergies.list(1).should eq(["eggs"])
+    Allergies.list(1).should eq(["eggs"] of String)
   end
 
   pending "just peanuts" do
-    Allergies.list(2).should eq(["peanuts"])
+    Allergies.list(2).should eq(["peanuts"] of String)
   end
 
   pending "just strawberries" do
-    Allergies.list(8).should eq(["strawberries"])
+    Allergies.list(8).should eq(["strawberries"] of String)
   end
 
   pending "eggs and peanuts" do
-    Allergies.list(3).should eq(["eggs", "peanuts"])
+    Allergies.list(3).should eq(["eggs", "peanuts"] of String)
   end
 
   pending "more than eggs but not peanuts" do
-    Allergies.list(5).should eq(["eggs", "shellfish"])
+    Allergies.list(5).should eq(["eggs", "shellfish"] of String)
   end
 
   pending "lots of stuff" do
-    Allergies.list(248).should eq(["strawberries", "tomatoes", "chocolate", "pollen", "cats"])
+    Allergies.list(248).should eq(["strawberries", "tomatoes", "chocolate", "pollen", "cats"] of String)
   end
 
   pending "everything" do
-    Allergies.list(255).should eq(["eggs", "peanuts", "shellfish", "strawberries", "tomatoes", "chocolate", "pollen", "cats"])
+    Allergies.list(255).should eq(["eggs", "peanuts", "shellfish", "strawberries", "tomatoes", "chocolate", "pollen", "cats"] of String)
   end
 
   pending "no allergen score parts" do
-    Allergies.list(509).should eq(["eggs", "shellfish", "strawberries", "tomatoes", "chocolate", "pollen", "cats"])
+    Allergies.list(509).should eq(["eggs", "shellfish", "strawberries", "tomatoes", "chocolate", "pollen", "cats"] of String)
+  end
+
+  pending "no allergen score parts without highest valid score" do
+    Allergies.list(257).should eq(["eggs"] of String)
   end
 end
