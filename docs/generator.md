@@ -1,6 +1,6 @@
 # Generator
 
-Last Updated: 2023/01/07
+Last Updated: 2023/01/16
 
 The generator is a powerful tool that can be used to generate the tests for an exercises based on the canonical data.
 The generator is written in Crystal and is located in the `bin` directory.
@@ -79,27 +79,24 @@ The template is located in the under `.meta` for each exercise.
 This template has to be manually written for each exercise.
 The goal although is to make it so that you only have to write the template once and then it will be able to used to generate new tests.
 
-The template file is written in [Liquid](https://shopify.github.io/liquid/), although it is not "vanilla" liquid instead it is a modified version of liquid which is modified to work with Crystal.
-Therefore so does it not have all the features that liquid has, but it does have the most important ones.
-If you want to know more about the modified version of liquid so can you read the [documentation]().
+The template file is written in [Embedded Crystal(ECR)][ecr], it is very similar to ERB(Embedded Ruby) for people who have worked with that.
+Ecr enables you to write Crystal code inside of the template file.
+It also means that the templates can be highly customizable since you can write any Crystal code you want.
 
 When writing the template file is it recommended to look at already existing template files to get a better understanding of how it works.
-The template is getting a slightly modified version of the canonical data, so you can check out the [canonical data]() to see the data structure.
+The template is getting a slightly modified version of the canonical data, so you can check out the [canonical data][canonical data] to see the data structure.
 The modification is that the cases which is not included in the toml file will be removed from the data structure.
-Another modification is that there is an extra field called: `exercise_cammel` which is the exercise name but in camel case.
 
 When writing the template so is it a special tool which can help with giving `it` and `pending` tags for tests.
-To use it so do you have to assign the variable `first` to `true` and then include the template file.
-Then write include for this path: `./bin/extra-templates/generator_help` and pass the variable `first` to it.
-Then will it assign `it` for the first test and `pending` for the rest.
+You simply have to call the `status` method.
+It will return either `it` or `pending` depending on if it is the first test case or not.
+
 Here is an example:
 
-```liquid
-{%- assign first = true -%}
-
-{% include "./bin/extra-templates/generator_help", first: first %}
-{% include "./bin/extra-templates/generator_help", first: first %}
-{% include "./bin/extra-templates/generator_help", first: first %}
+```crystal
+<%= status()%>
+<%= status()%>
+<%= status()%>
 ```
 
 result:
@@ -113,21 +110,16 @@ pending
 ### The Test Generator
 
 If all the earlier steps are done so can you run the generator.
-The generator is located in the `bin` directory and is called `generator.cr`.
-Before running you have to run the following script while being in the root directory:
+To run the generator you need to have a working crystal installation.
+The generator is located in the `bin` directory and is called `generator.sh`.
 
-```shell
-shards install
-```
-
-That will install all the dependencies for the generator.
 To run the generator so do you have to be in the root directory and run the following command:
 
 ```shell
-crystal ./bin/generator.cr <exercise>
+./bin/generator.sh <exercise_slug>
 ```
 
-Where `<exercise>` is the same name as the slug name which is located in the `config.json` file.
+Where `<exercise_slug>` is the same name as the slug name which is located in the `config.json` file.
 
 ### Errors and warnings
 
@@ -180,3 +172,6 @@ After that is the new line returned and then will the file be formatted again wi
 
 There is also an extra option when running the generator which is being able to specify where the generated file should be written.
 This is by adding the path as a second argument when running the generator.
+
+[ecr]: https://crystal-lang.org/api/1.7.0/ECR.html
+[canonical data]: https://github.com/exercism/problem-specifications

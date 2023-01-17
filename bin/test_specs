@@ -1,15 +1,13 @@
 #!/bin/bash
 
 # Test the spec files.
-# Regenerate the spec files from the liquid template and check that the newly generated spec is the same as the old spec.
+# Regenerate the spec files from the ecr template and check that the newly generated spec is the same as the old spec.
 
 # error prints an error to STDERR and exits.
 error() {
     printf '%s\n' "$@" >&2
     exit 1
 }
-
-shards install
 
 # Temporary directory for holding copies of the specs.
 tmpdir="$(mktemp -d)" || error "Failed to make a temp directory."
@@ -33,7 +31,7 @@ get_exercises() {
     fi
     # Check practice exercises for a liquid template.
     for exercise in ./exercises/practice/*; do
-        if [[ -r "${exercise}/.meta/test_template.liquid" ]]; then
+        if [[ -r "${exercise}/.meta/test_template.ecr" ]]; then
             printf "%s\n" "${exercise#./exercises/practice/}"
         fi
     done
@@ -56,7 +54,7 @@ test_specs() {
         spec_name="${spec##*/}"
 
         # Generate a new spec.
-        crystal ./bin/generator.cr "${exercise}" "${tmpdir}/${spec_name}" >/dev/null || error "Failed to generate spec for ${exercise}."
+        ./bin/generator.sh "${exercise}" "${tmpdir}/${spec_name}" >/dev/null || error "Failed to generate spec for ${exercise}."
         if [[ ! -r "${tmpdir}/${spec_name}" ]]; then
             error "Failed to generate spec ${spec}!"
         fi

@@ -1,28 +1,17 @@
-require "liquid"
 require "json"
 require "http/client"
+require "ecr"
 
 class GeneratorHelp
   @tpl : String | Nil
   @json : JSON::Any
 
   def initialize(@exercise : String)
+    @first = true
     check_config()
     @json = get_remote_files()
-    @json.as_h["exercise_cammel"] = JSON::Any.new(to_cammel(@json["exercise"].to_s))
     additional_json()
     remove_tests(toml())
-    template_path = "./exercises/practice/#{@exercise}/.meta/test_template.liquid"
-    raise "Template not found: #{template_path}" unless File.exists?(template_path)
-    template_file = File.read(template_path)
-    ctx = Liquid::Context.new
-    ctx.set "json", @json
-    tpl = Liquid::Template.parse template_file
-    @tpl = tpl.render ctx
-  end
-
-  def to_s
-    @tpl
   end
 
   def toml
@@ -100,4 +89,37 @@ class GeneratorHelp
       end
     end
   end
+
+  def to_snake(input)
+    result = ""
+    input.each_char do |x|
+      result += x.upcase == x ? "_#{x.downcase}" : x
+    end
+    result
+  end
+
+  def to_capitalized(input)
+    result = ""
+    input = input.capitalize
+    capitalized = false
+    input.each_char do |x|
+      if x == '-'
+        capitalized = true
+      else
+        result += capitalized ? x.upcase : x
+        capitalized = false
+      end
+    end
+    result
+  end
+
+  def status
+    if @first
+      @first = false
+      return "it"
+    end
+    "pending"
+  end
+
+  ECR.def_to_s "./bin/templates/template.ecr"
 end

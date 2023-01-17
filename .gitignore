@@ -25,3 +25,4 @@ generator/bin
 generator/bin/generator
 lib
 shards.lock
+bin/templates/template.ecr
