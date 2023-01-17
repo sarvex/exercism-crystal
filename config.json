@@ -264,15 +264,6 @@
         "topics": []
       },
       {
-        "slug": "react",
-        "name": "React",
-        "uuid": "2da645e4-7e72-4377-a7ac-184b67ff8a63",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 1,
-        "topics": []
-      },
-      {
         "slug": "resistor-color",
         "name": "Resistor Color",
         "uuid": "e43450c4-6feb-401d-8fdb-137bb87756d7",
@@ -608,6 +599,16 @@
           "loops",
           "math"
         ]
+      },
+      {
+        "slug": "react",
+        "name": "React",
+        "uuid": "2da645e4-7e72-4377-a7ac-184b67ff8a63",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 1,
+        "topics": [],
+        "status": "deprecated"
       }
     ]
   },
