@@ -32,6 +32,12 @@ describe "Series" do
     end
   end
 
+  pending "slice length is way too large" do
+    expect_raises(ArgumentError) do
+      Series.slices("12345", 42)
+    end
+  end
+
   pending "slice length cannot be zero" do
     expect_raises(ArgumentError) do
       Series.slices("12345", 0)
