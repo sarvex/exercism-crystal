@@ -1,26 +1,28 @@
 require "spec"
 require "../src/*"
 
-describe "RnaComplement" do
-  describe "#of_dna" do
-    it "correctly transcribes cytosine to guanine" do
-      RnaComplement.of_dna("C").should eq "G"
-    end
+describe "RnaTranscription" do
+  it "Empty RNA sequence" do
+    RnaComplement.of_dna("").should eq("")
+  end
 
-    pending "correctly transcribes guanine to cytocine" do
-      RnaComplement.of_dna("G").should eq "C"
-    end
+  pending "RNA complement of cytosine is guanine" do
+    RnaComplement.of_dna("C").should eq("G")
+  end
 
-    pending "correctly transcribes thymine to adenine" do
-      RnaComplement.of_dna("T").should eq "A"
-    end
+  pending "RNA complement of guanine is cytosine" do
+    RnaComplement.of_dna("G").should eq("C")
+  end
 
-    pending "correctly transcribes adenine to uracil" do
-      RnaComplement.of_dna("A").should eq "U"
-    end
+  pending "RNA complement of thymine is adenine" do
+    RnaComplement.of_dna("T").should eq("A")
+  end
 
-    pending "correctly transcribes all dna nucleotides to their rna compliment" do
-      RnaComplement.of_dna("ACGTGGTCTTAA").should eq "UGCACCAGAAUU"
-    end
+  pending "RNA complement of adenine is uracil" do
+    RnaComplement.of_dna("A").should eq("U")
+  end
+
+  pending "RNA complement" do
+    RnaComplement.of_dna("ACGTGGTCTTAA").should eq("UGCACCAGAAUU")
   end
 end
