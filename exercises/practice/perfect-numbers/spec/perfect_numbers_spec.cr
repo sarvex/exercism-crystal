@@ -46,13 +46,13 @@ describe "PerfectNumbers" do
     PerfectNumbers.classify(1).should eq("deficient")
   end
 
-  pending "Zero is rejected (not a natural number)" do
+  pending "Zero is rejected (as it is not a positive integer)" do
     expect_raises(ArgumentError) do
       PerfectNumbers.classify(0)
     end
   end
 
-  pending "Negative integer is rejected (not a natural number)" do
+  pending "Negative integer is rejected (as it is not a positive integer)" do
     expect_raises(ArgumentError) do
       PerfectNumbers.classify(-1)
     end
