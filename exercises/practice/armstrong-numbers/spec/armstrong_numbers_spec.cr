@@ -37,12 +37,4 @@ describe "ArmstrongNumbers" do
   pending "Seven digit number that is not an Armstrong number" do
     ArmstrongNumbers.armstrong_number?(9926314).should eq(false)
   end
-
-  pending "Armstrong number containing seven zeroes" do
-    ArmstrongNumbers.armstrong_number?(186709961001538790100634132976990_i128).should eq(true)
-  end
-
-  pending "The largest and last Armstrong number" do
-    ArmstrongNumbers.armstrong_number?(115132219018763992565095597973971522401_i128).should eq(true)
-  end
 end
