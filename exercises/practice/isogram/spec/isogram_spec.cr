@@ -53,4 +53,8 @@ describe "Isogram" do
   pending "same first and last characters" do
     Isogram.isogram?("angola").should eq(false)
   end
+
+  pending "word with duplicated character and with two hyphens" do
+    Isogram.isogram?("up-to-date").should eq(false)
+  end
 end

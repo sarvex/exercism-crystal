@@ -34,13 +34,13 @@ describe "Hamming" do
     end
   end
 
-  pending "disallow left empty strand" do
+  pending "disallow empty first strand" do
     expect_raises(ArgumentError) do
       Hamming.distance("", "G")
     end
   end
 
-  pending "disallow right empty strand" do
+  pending "disallow empty second strand" do
     expect_raises(ArgumentError) do
       Hamming.distance("G", "")
     end

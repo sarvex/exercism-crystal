@@ -2,7 +2,7 @@ require "spec"
 require "../src/*"
 
 describe "IsbnVerifier" do
-  it "valid isbn number" do
+  it "valid isbn" do
     IsbnVerifier.valid?("3-598-21508-8").should eq(true)
   end
 
@@ -10,7 +10,7 @@ describe "IsbnVerifier" do
     IsbnVerifier.valid?("3-598-21508-9").should eq(false)
   end
 
-  pending "valid isbn number with a check digit of 10" do
+  pending "valid isbn with a check digit of 10" do
     IsbnVerifier.valid?("3-598-21507-X").should eq(true)
   end
 
@@ -18,7 +18,11 @@ describe "IsbnVerifier" do
     IsbnVerifier.valid?("3-598-21507-A").should eq(false)
   end
 
-  pending "invalid character in isbn" do
+  pending "invalid check digit in isbn is not treated as zero" do
+    IsbnVerifier.valid?("4-598-21507-B").should eq(false)
+  end
+
+  pending "invalid character in isbn is not treated as zero" do
     IsbnVerifier.valid?("3-598-P1581-X").should eq(false)
   end
 
@@ -62,8 +66,12 @@ describe "IsbnVerifier" do
     IsbnVerifier.valid?("134456729").should eq(false)
   end
 
-  pending "invalid characters are not ignored" do
+  pending "invalid characters are not ignored after checking length" do
     IsbnVerifier.valid?("3132P34035").should eq(false)
+  end
+
+  pending "invalid characters are not ignored before checking length" do
+    IsbnVerifier.valid?("3598P215088").should eq(false)
   end
 
   pending "input is too long but contains a valid isbn" do
