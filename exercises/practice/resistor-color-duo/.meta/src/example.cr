@@ -15,6 +15,6 @@ module ResistorColorDuo
   end
 
   def value(values : Array(String)) : Number
-    values.map { |c| Color.parse(c).value }.join.to_i
+    values[0..1].map { |c| Color.parse(c).value }.join.to_i
   end
 end
