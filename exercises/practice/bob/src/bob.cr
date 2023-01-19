@@ -1,1 +1,5 @@
-# Please implement your solution to bob in this file
+module Bob
+  def self.hey(string : String) : String
+    # Write your code for the 'Bob' exercise in this file.
+  end
+end

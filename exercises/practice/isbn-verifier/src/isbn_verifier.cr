@@ -1,1 +1,5 @@
-# Please implement your solution to isbn-verifier in this file
+module IsbnVerifier
+  def valid?(isbn : String) : Bool
+    # Write your code for the 'isbn-verifier' exercise in this file.
+  end
+end

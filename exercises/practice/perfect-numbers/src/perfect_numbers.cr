@@ -1,1 +1,5 @@
-# Please implement your solution to perfect-numbers in this file
+module PerfectNumbers
+  def self.classify(num : Number) : String
+    # Write your code for the 'Perfect Numbers' exercise in this file.
+  end
+end

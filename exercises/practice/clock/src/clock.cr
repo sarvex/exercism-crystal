@@ -1,3 +1,3 @@
 class Clock
-  # Implement the Clock class
+  # Write your code for the 'Clock' exercise in this file.
 end

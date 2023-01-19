@@ -1,1 +1,5 @@
-# Please implement your solution to two_fer in this file
+module TwoFer
+  def self.two_fer
+    # Write your code for the 'Two Fer' exercise in this file.
+  end
+end

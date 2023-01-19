@@ -1,1 +1,3 @@
-# Please implement your solution to largest-series-product in this file
+class Series
+  # Write your code for the 'Largest Series Product' exercise in this file.
+end

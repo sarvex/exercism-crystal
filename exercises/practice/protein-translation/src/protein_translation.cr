@@ -1,1 +1,5 @@
-# Please implement your solution to protein-translation in this file
+module ProteinTranslation
+  def self.proteins(strand : String) : Array(String)
+    # Write your code for the 'Protein Translation' exercise in this file.
+  end
+end

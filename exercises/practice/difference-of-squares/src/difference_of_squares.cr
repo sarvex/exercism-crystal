@@ -1,1 +1,3 @@
-# Please implement your solution to difference-of-squares in this file
+module Squares
+  # Write your code for the 'Difference Of Squares' exercise in this file.
+end

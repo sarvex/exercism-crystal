@@ -1,1 +1,5 @@
-# Please implement your solution to gigasecond in this file
+module Gigasecond
+  def self.from(start : Time) : Time
+    # Write your code for the 'Gigasecond' exercise in this file.
+  end
+end
