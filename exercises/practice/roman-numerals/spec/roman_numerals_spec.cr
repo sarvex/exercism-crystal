@@ -30,6 +30,10 @@ describe "RomanNumerals" do
     9.to_roman.should eq("IX")
   end
 
+  pending "16 is XVI" do
+    16.to_roman.should eq("XVI")
+  end
+
   pending "27 is XXVII" do
     27.to_roman.should eq("XXVII")
   end
@@ -46,6 +50,10 @@ describe "RomanNumerals" do
     59.to_roman.should eq("LIX")
   end
 
+  pending "66 is LXVI" do
+    66.to_roman.should eq("LXVI")
+  end
+
   pending "93 is XCIII" do
     93.to_roman.should eq("XCIII")
   end
@@ -58,12 +66,20 @@ describe "RomanNumerals" do
     163.to_roman.should eq("CLXIII")
   end
 
+  pending "166 is CLXVI" do
+    166.to_roman.should eq("CLXVI")
+  end
+
   pending "402 is CDII" do
     402.to_roman.should eq("CDII")
   end
 
   pending "575 is DLXXV" do
     575.to_roman.should eq("DLXXV")
+  end
+
+  pending "666 is DCLXVI" do
+    666.to_roman.should eq("DCLXVI")
   end
 
   pending "911 is CMXI" do
@@ -74,28 +90,12 @@ describe "RomanNumerals" do
     1024.to_roman.should eq("MXXIV")
   end
 
-  pending "3000 is MMM" do
-    3000.to_roman.should eq("MMM")
-  end
-
-  pending "16 is XVI" do
-    16.to_roman.should eq("XVI")
-  end
-
-  pending "66 is LXVI" do
-    66.to_roman.should eq("LXVI")
-  end
-
-  pending "166 is CLXVI" do
-    166.to_roman.should eq("CLXVI")
-  end
-
-  pending "666 is DCLXVI" do
-    666.to_roman.should eq("DCLXVI")
-  end
-
   pending "1666 is MDCLXVI" do
     1666.to_roman.should eq("MDCLXVI")
+  end
+
+  pending "3000 is MMM" do
+    3000.to_roman.should eq("MMM")
   end
 
   pending "3001 is MMMI" do
