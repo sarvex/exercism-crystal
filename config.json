@@ -436,6 +436,18 @@
         ]
       },
       {
+        "slug": "high-scores",
+        "name": "High Scores",
+        "uuid": "818c4ba2-9bb4-46fd-808c-9d9a9631881f",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2,
+        "topics": [
+          "arrays",
+          "classes"
+        ]
+      },
+      {
         "slug": "all-your-base",
         "name": "All Your Base",
         "uuid": "c8dd3c53-e4fc-434e-9e4e-3def1361cf58",
