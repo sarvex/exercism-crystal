@@ -1,4 +1,4 @@
-class Series
+class LargestSeriesProduct
   @series : Array(Int64)
 
   def initialize(series : String)
