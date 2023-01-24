@@ -299,6 +299,17 @@
         ]
       },
       {
+        "slug": "rotational-cipher",
+        "name": "Rotational Cipher",
+        "uuid": "5c66a23b-e7af-451e-9aeb-1b79d971bc98",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 1,
+        "topics": [
+          "strings"
+        ]
+      },
+      {
         "slug": "rna-transcription",
         "name": "RNA Transcription",
         "uuid": "99e661d7-7094-400f-a31d-48cf96d2cbc6",
