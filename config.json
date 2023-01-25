@@ -560,6 +560,19 @@
         ]
       },
       {
+        "slug": "word-count",
+        "name": "Word Count",
+        "uuid": "27783181-8b3e-4a18-af09-05882941f8d7",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 3,
+        "topics": [
+          "Hashmaps",
+          "strings",
+          "loops"
+        ]
+      },
+      {
         "slug": "allergies",
         "name": "Allergies",
         "uuid": "6c07e00f-78f0-4878-9222-d9e3ed86fd0b",
