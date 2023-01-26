@@ -460,6 +460,19 @@
         ]
       },
       {
+        "slug": "binary-search",
+        "name": "Binary Search",
+        "uuid": "344bc69f-6fa8-4983-8b1e-a97d169fbfab",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2,
+        "topics": [
+          "numbers",
+          "arrays",
+          "loops"
+        ]
+      },
+      {
         "slug": "high-scores",
         "name": "High Scores",
         "uuid": "818c4ba2-9bb4-46fd-808c-9d9a9631881f",
