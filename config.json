@@ -537,9 +537,8 @@
         "uuid": "2da645e4-7e72-4377-a7ac-184b67ff8a63",
         "practices": [],
         "prerequisites": [],
-        "difficulty": 1,
-        "topics": [],
-        "status": "deprecated"
+        "difficulty": 6,
+        "topics": []
       }
     ]
   },
