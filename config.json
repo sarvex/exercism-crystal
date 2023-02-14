@@ -388,6 +388,15 @@
         "topics": ["numbers", "arrays", "loops"]
       },
       {
+        "slug": "phone-number",
+        "name": "Phone Number",
+        "uuid": "e78171f5-ab0e-4997-a5b8-030c05301ed3",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2,
+        "topics": ["string", "number", "loops"]
+      },
+      {
         "slug": "nucleotide-count",
         "name": "Nucleotide Count",
         "uuid": "42296e84-233a-4251-9910-bf1fb9a1563c",
