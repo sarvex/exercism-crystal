@@ -424,6 +424,15 @@
         "topics": ["integers", "math", "transforming"]
       },
       {
+        "slug": "wordy",
+        "name": "Wordy",
+        "uuid": "52b3f087-2b9e-4566-8de5-a4b59ef80b16",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 3,
+        "topics": ["strings"]
+      },
+      {
         "slug": "forth",
         "name": "Forth",
         "uuid": "c85a6334-2f76-44ce-8ca5-0e997cc65d03",
